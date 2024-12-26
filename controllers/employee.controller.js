@@ -14,7 +14,7 @@ exports.completeEmployeeTodo=asyncHandler(async(req,res)=>{
 })
 exports.readEmployeecompleteTodo=asyncHandler(async(req,res)=>{
     const result1=await Todo.find().populate("employee","name email")
-    const result=result.filter(item=>item.isComplete == true )    
+    const result=result1.filter(item=>item.isComplete == true )    
     res.json({message:"todo read success....",result})
 
 })

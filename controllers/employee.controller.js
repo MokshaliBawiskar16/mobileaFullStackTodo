@@ -12,3 +12,12 @@ exports.completeEmployeeTodo=asyncHandler(async(req,res)=>{
   res.json({message:"todo complete success"})
 
 })
+exports.readEmployeecompleteTodo=asyncHandler(async(req,res)=>{
+    const result=await Todo.find().populate("employee","name email")
+    const result1=result.filter(item=>item.isComplete == true )
+    console.log(result);
+    console.log(result1);
+    
+    res.json({message:"todo read success....",result1})
+
+})
